@@ -1,7 +1,7 @@
 ---
 title: "Rapport du Projet Titanic Survival Prediction"
 author: "Équipe BUT 3 Sciences des Données"
-date: "`r Sys.Date()`"
+date: "2025-01-30"
 output: github_document
 ---
 
