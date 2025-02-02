@@ -56,8 +56,7 @@ Nous recommandons l'utilisation d'un **environnement virtuel** :
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # Sur Mac/Linux
-venv\Scripts\activate  # Sur Windows
+venv\Scripts\activate 
 pip install -r requirements.txt
 ```
 
@@ -94,12 +93,7 @@ pytest tests/
 
 # 4. Contributions des Membres de l’Équipe
 
-Ce projet a été réalisé en équipe, avec une répartition des rôles selon les **compétences et préférences** de chacun :
-
-- **[Nom 1]** : Responsable du **prétraitement des données** et de leur structuration.
-- **[Nom 2]** : Implémentation et **entraînement du modèle Random Forest**.
-- **[Nom 3]** : Évaluation du modèle, génération des **prédictions et soumission des résultats**.
-- **[Nom 4]** : Mise en place de la **CI/CD avec GitHub Actions** et rédaction de la documentation.
+Dans le cadre de ce projet, chaque membre de l’équipe a contribué à une partie essentielle du développement. **Précy** s’est occupée de la refactorisation du code, en transformant le notebook Kaggle en scripts Python modulaires et en assurant la qualité du code selon les standards PEP 8. **Meriam** a pris en charge l’ajout des tests unitaires pour garantir la fiabilité des fonctions de prétraitement et du modèle. **Awa** a rédigé la documentation, incluant les docstrings et un fichier README détaillant les objectifs et l’utilisation du projet. **Maëlle** a mis en place l’environnement de collaboration avec Git et GitHub, en organisant les branches et les workflows. Enfin, l’ensemble de l’équipe a travaillé collectivement sur l’implémentation de la pipeline CI/CD, automatisant les tests, le linting et l’intégration continue afin d’assurer la stabilité du projet.
 
 Chaque membre a également contribué à la **relecture et à l’amélioration du code** en respectant les bonnes pratiques d’ingénierie logicielle.
 
