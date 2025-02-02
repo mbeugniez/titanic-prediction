@@ -1,10 +1,13 @@
-# tests/test_data_preprocessing.py
+import sys
+import os
 import pandas as pd
 import joblib
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'main')))
+
 from data_preprocessing import preprocess_data
 from model_training import train_model
 from model_evaluation import predict
-
 
 def test_preprocess_data():
     """Vérifie que le prétraitement des données fonctionne correctement."""
