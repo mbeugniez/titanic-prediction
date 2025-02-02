@@ -19,7 +19,7 @@ def test_preprocess_data():
 
     assert "Sex_male" in processed_data.columns
     assert "Sex_female" in processed_data.columns
-    assert processed_data.shape[1] == 4  
+    assert processed_data.shape[1] == 4
 
 
 # tests/test_model_training.py
@@ -41,7 +41,7 @@ def test_train_model():
 
 # tests/test_model_evaluation.py
 def test_predict(tmp_path):
-    """Vérifie que la prédiction s'exécute correctement 
+    """Vérifie que la prédiction s'exécute correctement
     et génère un fichier CSV."""
     model_path = tmp_path / "test_model.pkl"
     output_path = tmp_path / "test_predictions.csv"
