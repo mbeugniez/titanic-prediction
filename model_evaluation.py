@@ -1,32 +1,36 @@
 import joblib
-import joblib
-import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 
 
-def predict(model_path, X_test, output_path="submission.csv"):
-    """Charge le modèle, effectue des prédictions et enregistre les résultats."""
+def train_model(X, y, model_path="model.pkl"):
+    """Entraîne un modèle Random Forest et le sauvegarde."""
     
-    # Chargement du modèle
-    model=joblib.load(model_path)
+    # Indentation correcte pour la continuation de la ligne
+    model = RandomForestClassifier(
+        n_estimators=100,
+        max_depth=5,
+        random_state=1
+    )
     
-    # Prédictions
-    predictions=model.predict(X_test)
+    # Entraînement du modèle
+    model.fit(X, y)
     
-    # Création du DataFrame de résultats
-    output=pd.DataFrame({"PassengerId":X_test.index,"Survived":predictions})
+    # Sauvegarde du modèle
+    joblib.dump(model, model_path)
+    print(f"Modèle sauvegardé sous {model_path}")
     
-    # Sauvegarde des résultats
-    output.to_csv(output_path,index=False)
-    print(f"Prédictions sauvegardées sous {output_path}")
+    return model
 
 
-if __name__=="__main__":
-    from data_preprocessing import load_data,preprocess_data
+if __name__ == "__main__":
+    from data_preprocessing import load_data, preprocess_data
 
-    # Chargement des données de test
-    _,test_data=load_data("train.csv","test.csv")
-    X_test=preprocess_data(test_data)
+    # Chargement des données d'entraînement
+    train_data, _ = load_data("train.csv", "test.csv")
+    X = preprocess_data(train_data)
+    y = train_data["Survived"]
     
-    # Effectuer les prédictions
-    predict("model.pkl",X_test)
+    # Entraînement du modèle
+    train_model(X, y)
+
 
