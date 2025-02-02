@@ -3,12 +3,9 @@ import os
 import pandas as pd
 import joblib
 
-from data_preprocessing import preprocess_data
-from model_training import train_model
-from model_evaluation import predict
-
-sys.path.append(os.path.abspath(os.path.join(
-    os.path.dirname(__file__), '..', 'main')))
+from src.data_preprocessing import preprocess_data
+from src.model_training import train_model
+from src.model_evaluation import predict
 
 
 def test_preprocess_data():
