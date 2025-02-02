@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def predict(model_path, X_test, output_path="submission.csv"):
-    """Charge le modèle, effectue des prédictions 
+    """Charge le modèle, effectue des prédictions
     et enregistre les résultats."""
     model = joblib.load(model_path)
     predictions = model.predict(X_test)
