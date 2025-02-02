@@ -4,9 +4,9 @@ from sklearn.ensemble import RandomForestClassifier
 
 def train_model(X, y, model_path="model.pkl"):
     """Entraîne un modèle Random Forest et le sauvegarde."""
-    model =(
-         RandomForestClassifier(n_estimators=100, max_depth=5, random_state=1)
-    )
+    model = RandomForestClassifier(
+    n_estimators=100, max_depth=5, random_state=1
+)
     model.fit(X, y)
     joblib.dump(model, model_path)
     print(f"Modèle sauvegardé sous {model_path}")

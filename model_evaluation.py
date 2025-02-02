@@ -9,7 +9,7 @@ def predict(model_path, X_test, output_path="submission.csv"):
     predictions = model.predict(X_test)
     output =(
          pd.DataFrame({"PassengerId": X_test.index, "Survived": predictions})
-    )
+)
     output.to_csv(output_path, index=False)
     print(f"Prédictions sauvegardées sous {output_path}")
 
