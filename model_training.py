@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 def train_model(X, y, model_path="model.pkl"):
     """Entraîne un modèle Random Forest et le sauvegarde."""
-    
+
     # Création du modèle avec une indentation correcte
     model = RandomForestClassifier(
         n_estimators=100,
@@ -32,4 +32,3 @@ if __name__ == "__main__":
 
     # Entraînement du modèle
     train_model(X, y)
-
