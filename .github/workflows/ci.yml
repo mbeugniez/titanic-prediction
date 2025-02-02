@@ -41,4 +41,4 @@ jobs:
         run: pip install flake8
 
       - name: Vérification du style de code
-        run: flake8 src/
+        run: flake8 .
