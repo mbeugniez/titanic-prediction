@@ -1,36 +1,19 @@
 import joblib
-from sklearn.ensemble import RandomForestClassifier
+import pandas as pd
 
 
-def train_model(X, y, model_path="model.pkl"):
-    """Entraîne un modèle Random Forest et le sauvegarde."""
-    
-    # Indentation correcte pour la continuation de la ligne
-    model = RandomForestClassifier(
-        n_estimators=100,
-        max_depth=5,
-        random_state=1
-    )
-    
-    # Entraînement du modèle
-    model.fit(X, y)
-    
-    # Sauvegarde du modèle
-    joblib.dump(model, model_path)
-    print(f"Modèle sauvegardé sous {model_path}")
-    
-    return model
+def predict(model_path, X_test, output_path="submission.csv"):
+    """Charge le modèle, effectue des prédictions et enregistre les résultats."""
+    model = joblib.load(model_path)
+    predictions = model.predict(X_test)
+    output = pd.DataFrame({"PassengerId": X_test.index, "Survived": predictions})
+    output.to_csv(output_path, index=False)
+    print(f"Prédictions sauvegardées sous {output_path}")
 
 
 if __name__ == "__main__":
     from data_preprocessing import load_data, preprocess_data
 
-    # Chargement des données d'entraînement
-    train_data, _ = load_data("train.csv", "test.csv")
-    X = preprocess_data(train_data)
-    y = train_data["Survived"]
-    
-    # Entraînement du modèle
-    train_model(X, y)
-
-
+    _, test_data = load_data("train.csv", "test.csv")
+    X_test = preprocess_data(test_data)
+    predict("model.pkl", X_test)
