@@ -9,10 +9,9 @@ def load_data(train_path, test_path):
 
 
 def preprocess_data(data):
-    """Effectue le prétraitement des données"""
-    """encodage des variables catégorielles."""
+    """Effectue le prétraitement des données en encodant les variables catégorielles."""
     features = ["Pclass", "Sex", "SibSp", "Parch"]
-    return pd.get_dummies(data[features])
+    return pd.get_dummies(data[features], drop_first=True) 
 
 
 if __name__ == "__main__":
