@@ -52,3 +52,23 @@ jobs:
 
       - name: Vérification du style de code
         run: flake8 .
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v3
+
+      - name: Configuration de Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Installation de black
+        run: pip install black
+
+      - name: Formatage du code avec black
+        run: |
+          source venv/bin/activate
+          black --check .  # Vérifie si le code est formaté
+          black .  # Formate effectivement le code
