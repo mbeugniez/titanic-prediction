@@ -7,11 +7,13 @@ def load_data(train_path, test_path):
     test_data = pd.read_csv(test_path)
     return train_data, test_data
 
+
 def preprocess_data(data):
     """Effectue le prétraitement des données en
-     encodant les variables catégorielles."""
+    encodant les variables catégorielles."""
     features = ["Pclass", "Sex", "SibSp", "Parch"]
     return pd.get_dummies(data[features], drop_first=False)
+
 
 if __name__ == "__main__":
     train_data, test_data = load_data("train.csv", "test.csv")
