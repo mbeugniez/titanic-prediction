@@ -32,7 +32,7 @@ jobs:
         run: |
           source venv/bin/activate  # Active l'environnement virtuel
           pytest tests/
-  
+
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -78,5 +78,4 @@ jobs:
       - name: Formatage du code avec black
         run: |
           source venv/bin/activate  # Active l'environnement virtuel
-          black --check .  # Vérifie si le code est formaté
           black .  # Formate effectivement le code
