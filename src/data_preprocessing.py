@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 def load_data(train_path, test_path):
     """Charge les fichiers CSV contenant les données Titanic."""
     train_data = pd.read_csv(train_path)

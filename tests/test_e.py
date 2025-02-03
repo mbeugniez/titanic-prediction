@@ -25,7 +25,7 @@ def test_preprocess_data():
 
     assert "Sex_male" in processed_data.columns
     assert "Sex_female" in processed_data.columns
-    assert processed_data.shape[1] == 4
+    assert processed_data.shape[1] == 5
 
 
 # tests/test_model_training.py
