@@ -7,6 +7,10 @@ from src.data_preprocessing import preprocess_data
 from src.model_training import train_model
 from src.model_evaluation import predict
 
+# Ajouter le chemin du dossier src pour que les imports fonctionnent
+sys.path.insert(0, os.path.abspath(os.path.join(
+    os.path.dirname(__file__), '../src')))
+
 
 def test_preprocess_data():
     """Vérifie que le prétraitement des données fonctionne correctement."""
